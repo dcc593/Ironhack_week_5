@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  </head>
+  <body>
+
+
+    <div>
+      <h2> Hi</h2> <!-- Tag selector in console is $('h2') -->
+    </div>
+
+<!-- =========================================== -->
+    <div><br>
+    <button class="js-pizza">
+    Pizza
+    </button>
+    <!-- Class selector in console is $('.js-pizza') -->
+    </div>
+
+<!-- =========================================== -->
+    <div><br>
+    <button id = "cookies">
+    Cookies
+    </button>
+    <!-- Id selector in console is $('#cookies') -->
+    </div>
+<!-- =========================================== -->
+
+    <br>
+    <a href="#shakes">Shakes</a>
+    <!-- Attribute selector in console is $('[href]') -->
+
+<!-- =========================================== -->
+
+    <div>
+    <br>
+    <button data-hook="coffee donuts">Coffee</button>
+    <!-- Attribute value selector in console is $('[data-hook="coffee donuts"]') -->
+
+    <!-- or  -->
+
+    <!-- if you want a shorter version you can do fuzzy matching $('[data-hook~="coffee"]') -->
+
+    </div>
+
+<!-- =========================================== -->
+
+    <div><br>
+    <!-- only choose the odd ones -->
+    <ul class="list">
+      <li>zero</li>
+      <li>one</li>
+      <li>two</li>
+      <li>three</li>
+    </ul>
+    <!-- Pseudo-class selector on console is $('.list li:odd') -->
+    </div>
+
+<!-- =========================================== -->
+
+    <div class="container" style="margin-top: 50px;">
+      <button class="btn btn-primary hello-button">Do Something</button>
+    </div>
+
+    <script type="text/javascript">
+      $('.hello-button').on('click', function () {
+        alert('hello world')
+      })
+    </script>
+
+<!-- =========================================== -->
+
+<!-- exercise, select them using jQuery -->
+    <div><br>
+      <p>I like pizza</p>
+      <h1 id="title"> jQuery Excerccises</h1>
+      <button class="js-tacos">Tacos</button>
+      <button data-action="do stuff">Do Stuff</button>
+    </div>
+  </body>
+</html>
