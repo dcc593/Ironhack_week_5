@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="app.js"></script>
+  </head>
+  <body>
+  <div class="container">
+  <h1>AJAX</h1>
+  </div>
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+      function fetchCharacters(){
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.open("GET","https://ironhack-characters.herokuapp.com/characters");
+        httpRequest.onreadystatechange = handleResponse;
+        httpRequest.send();
+      }
+
+      function handleResponse(event){
+        var httpRequest= event.currentTarget;
+
+        if(httpRequest.readyState===4){
+          if(httpRequest.status===200){
+            
+            var dataString=httpRequest.responseText;
+            var charactersArray=JSON.parse(dataString);
+            showCharacters(charactersArray);
+          }else{
+            alert("There was an error bro");
+          }
+        }
+      }
+
+      function showCharacters(charactersArray){
+        charactersArray.forEach(function(theCharacter){
+          var html= "<p>" + theCharacter.name + "- <strong>" + theCharacter.weapon + "</strong>" + "</p>";
+          $(".container").append(html);
+          console.log(theCharacter);
+
+
+        });
+      }
+
+      fetchCharacters();
+
+      function fetchCharactersWithJQuery(){
+        $.ajax({
+
+        })
+      }
+
+    });
+
+  </script>
+
+  <div>
+  <button class = "btn-fade"> Click to show list</button>
+  </div>
+
+ 
+
+  <form class="js-character-form">
+    <div>
+      <label for="name"> Name </label>
+      <input type="text" name="name">
+    </div>
+
+    <div>
+      <label for="occupation"> Occupation </label>
+      <input type="text" name="occupation">
+    </div>
+
+    <div>
+      <label for="weapon"> Weapon </label>
+      <input type="text" name="weapon">
+    </div>
+
+    <button type="submit">
+      Create new character
+    </button>
+  </form>
+    </body>
+</html>
